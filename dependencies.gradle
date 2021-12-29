@@ -1,4 +1,12 @@
 ext{
     //DI
     koin = '2.2.2'
+
+    //Retrofit
+    retrofit = '2.9.0'
+    moshi_converter = '2.9.0'
+    logging_interceptor = '4.9.1'
+    okhttp_tls = '4.9.0'
+
+
 }

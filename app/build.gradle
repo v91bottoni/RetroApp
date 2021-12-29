@@ -17,9 +17,20 @@ android {
     }
 
     buildTypes {
+        android.applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "SocialApp_${variant.name}-${variant.versionName}(v${variant.versionCode}).apk"
+            }
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "APP_BASE_URL", BASE_URL
+
+        }
+        debug{
+            buildConfigField "String", "APP_BASE_URL", BASE_URL
+
         }
     }
     compileOptions {
@@ -45,4 +56,9 @@ dependencies {
     implementation "org.koin:koin-android:$koin"
     implementation "org.koin:koin-androidx-scope:$koin"
     implementation "org.koin:koin-androidx-viewmodel:$koin"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$moshi_converter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor"
 }
