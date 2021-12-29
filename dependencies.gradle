@@ -8,5 +8,10 @@ ext{
     logging_interceptor = '4.9.1'
     okhttp_tls = '4.9.0'
 
+    //Moshi
+    //JSON mapping
+    moshi_version = '1.11.0'
+
+
 
 }

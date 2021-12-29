@@ -6,8 +6,13 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class ResponseUsersDTO(
     @Json(name = "data")
-    val results: List<UserDTO>
-) {
+    val data: List<UserDTO>,
+    @Json(name = "total")
+    val total: Int,
+    @Json(name = "page")
+    val page: Int,
+    @Json(name = "limit")
+    val limit: Int) {
     @JsonClass(generateAdapter = true)
     data class UserDTO (
         @Json(name= "id")

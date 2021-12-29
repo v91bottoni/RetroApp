@@ -19,11 +19,13 @@ data class Error(
 
 
 @JsonClass(generateAdapter = true)
-data class UserErrorResponse(
-    @Json(name = "error")
-    val error: Error?,
-): ErrorResponse() {
+data class GenericErrorResponse(
+    @Json(name = "code")
+    val errorCode: String?
+) : ErrorResponse() {
+    var httpCode: Int? = null
+
     override fun getErrorMessage(): String {
-        return "[${error?.status}] - ${error?.title.orEmpty()}: ${error?.detail.orEmpty()}"
+        return errorCode.orEmpty()
     }
 }
